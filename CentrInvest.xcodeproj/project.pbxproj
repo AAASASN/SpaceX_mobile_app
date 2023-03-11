@@ -1,0 +1,471 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1150909929AF523A00244A45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150909829AF523A00244A45 /* AppDelegate.swift */; };
+		1150909B29AF523A00244A45 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150909A29AF523A00244A45 /* SceneDelegate.swift */; };
+		115090A229AF523D00244A45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 115090A129AF523D00244A45 /* Assets.xcassets */; };
+		115090A529AF523D00244A45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 115090A329AF523D00244A45 /* LaunchScreen.storyboard */; };
+		116EF3CC29B7A32200C94EB1 /* Launch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116EF3CB29B7A32200C94EB1 /* Launch.swift */; };
+		11B965A329AF7A7700BEC9FB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B965A229AF7A7700BEC9FB /* MainViewController.swift */; };
+		11B965A529AF7B9600BEC9FB /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B965A429AF7B9600BEC9FB /* TableViewCell.swift */; };
+		11B965AE29AF7D3500BEC9FB /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B965AD29AF7D3500BEC9FB /* ViewModel.swift */; };
+		11B965B029AF7DEE00BEC9FB /* TableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B965AF29AF7DEE00BEC9FB /* TableViewCellViewModel.swift */; };
+		11B965B229AF7E5D00BEC9FB /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B965B129AF7E5D00BEC9FB /* NetworkManager.swift */; };
+		7D3E36F451F2A811DD7CF509 /* Pods_CentrInvest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25F624CDE7968FD082694A14 /* Pods_CentrInvest.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1150909529AF523A00244A45 /* CentrInvest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CentrInvest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1150909829AF523A00244A45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1150909A29AF523A00244A45 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		115090A129AF523D00244A45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		115090A429AF523D00244A45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		115090A629AF523D00244A45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		116EF3CB29B7A32200C94EB1 /* Launch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Launch.swift; sourceTree = "<group>"; };
+		11B965A229AF7A7700BEC9FB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		11B965A429AF7B9600BEC9FB /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		11B965AD29AF7D3500BEC9FB /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		11B965AF29AF7DEE00BEC9FB /* TableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellViewModel.swift; sourceTree = "<group>"; };
+		11B965B129AF7E5D00BEC9FB /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		25D7D084B421D599A43D005D /* Pods-CentrInvest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CentrInvest.debug.xcconfig"; path = "Target Support Files/Pods-CentrInvest/Pods-CentrInvest.debug.xcconfig"; sourceTree = "<group>"; };
+		25F624CDE7968FD082694A14 /* Pods_CentrInvest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CentrInvest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		66A2641D1143CA616E570929 /* Pods-CentrInvest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CentrInvest.release.xcconfig"; path = "Target Support Files/Pods-CentrInvest/Pods-CentrInvest.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1150909229AF523A00244A45 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D3E36F451F2A811DD7CF509 /* Pods_CentrInvest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1150908C29AF523A00244A45 = {
+			isa = PBXGroup;
+			children = (
+				1150909729AF523A00244A45 /* CentrInvest */,
+				1150909629AF523A00244A45 /* Products */,
+				58D9C84F5BDD5195C999E083 /* Pods */,
+				F3656F0EBA25B0569681F938 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		1150909629AF523A00244A45 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1150909529AF523A00244A45 /* CentrInvest.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1150909729AF523A00244A45 /* CentrInvest */ = {
+			isa = PBXGroup;
+			children = (
+				1150909829AF523A00244A45 /* AppDelegate.swift */,
+				1150909A29AF523A00244A45 /* SceneDelegate.swift */,
+				11B965A029AF79AD00BEC9FB /* View */,
+				11B9659F29AF79A300BEC9FB /* ViewModel */,
+				11B965A129AF79B600BEC9FB /* Model */,
+				115090A129AF523D00244A45 /* Assets.xcassets */,
+				115090A329AF523D00244A45 /* LaunchScreen.storyboard */,
+				115090A629AF523D00244A45 /* Info.plist */,
+			);
+			path = CentrInvest;
+			sourceTree = "<group>";
+		};
+		11B9659F29AF79A300BEC9FB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				11B965AD29AF7D3500BEC9FB /* ViewModel.swift */,
+				11B965AF29AF7DEE00BEC9FB /* TableViewCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		11B965A029AF79AD00BEC9FB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				11B965A229AF7A7700BEC9FB /* MainViewController.swift */,
+				11B965A429AF7B9600BEC9FB /* TableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		11B965A129AF79B600BEC9FB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				11B965B129AF7E5D00BEC9FB /* NetworkManager.swift */,
+				116EF3CB29B7A32200C94EB1 /* Launch.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		58D9C84F5BDD5195C999E083 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				25D7D084B421D599A43D005D /* Pods-CentrInvest.debug.xcconfig */,
+				66A2641D1143CA616E570929 /* Pods-CentrInvest.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F3656F0EBA25B0569681F938 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				25F624CDE7968FD082694A14 /* Pods_CentrInvest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1150909429AF523A00244A45 /* CentrInvest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 115090A929AF523D00244A45 /* Build configuration list for PBXNativeTarget "CentrInvest" */;
+			buildPhases = (
+				7A968C9CED1C49B309045F97 /* [CP] Check Pods Manifest.lock */,
+				1150909129AF523A00244A45 /* Sources */,
+				1150909229AF523A00244A45 /* Frameworks */,
+				1150909329AF523A00244A45 /* Resources */,
+				2BAD6E4D1AAC8567CAB1469C /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CentrInvest;
+			productName = CentrInvest;
+			productReference = 1150909529AF523A00244A45 /* CentrInvest.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1150908D29AF523A00244A45 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					1150909429AF523A00244A45 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = 1150909029AF523A00244A45 /* Build configuration list for PBXProject "CentrInvest" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1150908C29AF523A00244A45;
+			productRefGroup = 1150909629AF523A00244A45 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1150909429AF523A00244A45 /* CentrInvest */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1150909329AF523A00244A45 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				115090A529AF523D00244A45 /* LaunchScreen.storyboard in Resources */,
+				115090A229AF523D00244A45 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2BAD6E4D1AAC8567CAB1469C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CentrInvest/Pods-CentrInvest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CentrInvest/Pods-CentrInvest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CentrInvest/Pods-CentrInvest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7A968C9CED1C49B309045F97 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CentrInvest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1150909129AF523A00244A45 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11B965B029AF7DEE00BEC9FB /* TableViewCellViewModel.swift in Sources */,
+				11B965AE29AF7D3500BEC9FB /* ViewModel.swift in Sources */,
+				116EF3CC29B7A32200C94EB1 /* Launch.swift in Sources */,
+				1150909929AF523A00244A45 /* AppDelegate.swift in Sources */,
+				11B965B229AF7E5D00BEC9FB /* NetworkManager.swift in Sources */,
+				11B965A529AF7B9600BEC9FB /* TableViewCell.swift in Sources */,
+				1150909B29AF523A00244A45 /* SceneDelegate.swift in Sources */,
+				11B965A329AF7A7700BEC9FB /* MainViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		115090A329AF523D00244A45 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				115090A429AF523D00244A45 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		115090A729AF523D00244A45 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		115090A829AF523D00244A45 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		115090AA29AF523D00244A45 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25D7D084B421D599A43D005D /* Pods-CentrInvest.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 47GST27FJ9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CentrInvest/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.-alexanderMaraenko.CentrInvest";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		115090AB29AF523D00244A45 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 66A2641D1143CA616E570929 /* Pods-CentrInvest.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 47GST27FJ9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CentrInvest/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.-alexanderMaraenko.CentrInvest";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1150909029AF523A00244A45 /* Build configuration list for PBXProject "CentrInvest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				115090A729AF523D00244A45 /* Debug */,
+				115090A829AF523D00244A45 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		115090A929AF523D00244A45 /* Build configuration list for PBXNativeTarget "CentrInvest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				115090AA29AF523D00244A45 /* Debug */,
+				115090AB29AF523D00244A45 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1150908D29AF523A00244A45 /* Project object */;
+}
