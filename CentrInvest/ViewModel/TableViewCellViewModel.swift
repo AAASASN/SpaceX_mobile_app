@@ -7,15 +7,17 @@
 
 import Foundation
 import UIKit
+import Alamofire
+import RxRelay
 
 class TableViewCellViewModel {
     
-    private var launch: Launch
+    var launch: Launch
 
     init(launch: Launch) {
         self.launch = launch
     }
-    
+
     var missionIconImage: String {
         return launch.links?.patch?.small ?? "error image"
     }
@@ -41,21 +43,13 @@ class TableViewCellViewModel {
     
     var launchDate: String {
         guard let dateUtc = launch.dateUtc else { return "error guard let dateUtc = launch.dateUtc"}
-        let dateFormater = dateFormaterCreator()
-        guard let date = dateFormater.date(from: dateUtc) else { return "error1" }
-        
-        dateFormater.dateFormat = "MM/dd/yyyy"
-        let str = dateFormater.string(from: date)
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        guard let date = dateFormatter.date(from: dateUtc) else { return "error1" }
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        let str = dateFormatter.string(from: date)
         return str
     }
-    
-    func dateFormaterCreator() -> DateFormatter {
-        // для корректного формата даты
-        let dateFormatter = DateFormatter()
-        // настроим локализацию - для отображения на русском языке
-        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        // настроим вид отображения даты в текстовом виде
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-        return dateFormatter
-    }
+
 }

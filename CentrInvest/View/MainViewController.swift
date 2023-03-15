@@ -53,7 +53,7 @@ extension MainViewController {
         
         tableView.register(TableViewCell.self, forCellReuseIdentifier: "TableViewCell")
 
-        tableView.allowsSelection = false
+        //tableView.allowsSelection = false
         
     }
 }
@@ -68,7 +68,6 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
         cell.missionIconImage.image = nil
-        cell.accessoryType = .disclosureIndicator
         cell.tableViewCellViewModel = viewModel.cellViewModelCreate(forIndexPath: indexPath)
         return cell
     }
@@ -77,11 +76,13 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     //        300
     //    }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//
-//        guard let viewModel = viewModel else { return }
-//        viewModel.selectRow(atIndexPath: indexPath)
-//
-//        performSegue(withIdentifier: "detailSegue", sender: nil)
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        guard let viewModel = viewModel else { return }
+        
+        let detailViewController = DetailViewController()
+        detailViewController.detailViewModel = viewModel.detailViewModelCreate(forIndexPath: indexPath)
+        navigationController?.pushViewController(detailViewController, animated: true)
+
+    }
 }

@@ -25,7 +25,7 @@ class ViewModel {
     var launches: [Launch]! {
         didSet {
             
-            guard var x = observableValueForReloadTableView?.value else { return }
+            guard let x = observableValueForReloadTableView?.value else { return }
             observableValueForReloadTableView?.accept(!x)
             
             
@@ -69,6 +69,11 @@ class ViewModel {
     func cellViewModelCreate(forIndexPath indexPath: IndexPath) -> TableViewCellViewModel? {
         let launch = launches[indexPath.row]
         return TableViewCellViewModel(launch: launch)
+    }
+    
+    func detailViewModelCreate(forIndexPath indexPath: IndexPath) -> DetailViewModel? {
+        let launch = launches[indexPath.row]
+        return DetailViewModel(launch: launch)
     }
     
 //    func viewModelForSelectedRow() -> DetailViewModelType? {
