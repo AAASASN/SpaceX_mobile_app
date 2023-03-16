@@ -12,19 +12,13 @@ import RxSwift
 class TableViewCell: UITableViewCell {
         
     var missionIconImage: UIImageView!
-    
     var missionIconImageAsString: String!
-    
     var missionNameLabel: UILabel!
-    
     var flightNumberLabel: UILabel!
-    var missionSuccessLabel: UILabel!
-    
+    var missionSuccessLabel: UIButton!
     var launchDateLabel: UILabel!
-    
     var coresLaunchesCountLabel: UILabel!
     
-    var stackView4: UIStackView!
     
     weak var tableViewCellViewModel: TableViewCellViewModel? {
         willSet(tableViewCellViewModel) {
@@ -33,7 +27,18 @@ class TableViewCell: UITableViewCell {
             
             missionNameLabel.text = tableViewCellViewModel.missionName
             coresLaunchesCountLabel.text = tableViewCellViewModel.coresLaunchesCount
-            missionSuccessLabel.text = tableViewCellViewModel.missionSuccess
+            
+            missionSuccessLabel.setTitle(tableViewCellViewModel.missionSuccess, for: .normal)
+            
+            if tableViewCellViewModel.launch.success ?? false {
+                missionSuccessLabel.backgroundColor = .systemGreen
+                missionSuccessLabel.frame.size.width = 80
+            } else {
+                missionSuccessLabel.backgroundColor = .systemRed
+                missionSuccessLabel.frame.size.width = 40
+
+            }
+
             launchDateLabel.text = tableViewCellViewModel.launchDate
             flightNumberLabel.text = tableViewCellViewModel.flightNumber
             missionIconImageAsString = tableViewCellViewModel.missionIconImage
@@ -45,7 +50,6 @@ class TableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         createCellElements()
         addElementsToView()
-        setElementsConstraints()
         self.accessoryType = .disclosureIndicator
     }
     
@@ -54,114 +58,59 @@ class TableViewCell: UITableViewCell {
     }
     
     func createCellElements() {
-        
         missionIconImage = {
             let missionIconImage = UIImageView(image: UIImage(systemName: ""))
+            missionIconImage.frame = CGRect(x: 15, y: 15, width: 100, height: 100)
+
             return missionIconImage
         }()
         
         missionNameLabel = {
-            let missionNameLabel = UILabel(frame: .zero)
+            let missionNameLabel = UILabel(frame: CGRect(x: 130, y: 15, width: self.contentView.frame.maxX - missionIconImage.frame.origin.x - 30, height: 25))
+            
             missionNameLabel.numberOfLines = 0
             missionNameLabel.font = UIFont.boldSystemFont(ofSize: 22)
             return missionNameLabel
         }()
         
-        coresLaunchesCountLabel = {
-            let coresFlightLabel = UILabel(frame: .zero)
-            
-            coresFlightLabel.textColor = .systemGray3
-            return coresFlightLabel
+        flightNumberLabel = {
+            let flightNumberLabel = UILabel(frame: CGRect(x: 130, y: 45, width: 45, height: 20))
+            return flightNumberLabel
         }()
         
         missionSuccessLabel = {
-            let missionSuccessLabel = UILabel(frame: .zero)
-            missionSuccessLabel.textColor = .systemGreen
-            missionSuccessLabel.font = UIFont.boldSystemFont(ofSize: 18)
+            let missionSuccessLabel = UIButton(frame: CGRect(x: 130, y: 70, width: 80, height: 20))
+            missionSuccessLabel.titleLabel?.font = .boldSystemFont(ofSize: 18)
+            missionSuccessLabel.backgroundColor = .systemGreen
+            missionSuccessLabel.layer.cornerRadius = 5
+            
             return missionSuccessLabel
         }()
         
         launchDateLabel = {
-            let launchDateLabel = UILabel(frame: .zero)
+            let launchDateLabel = UILabel(frame: CGRect(x: 130, y: 95, width: 95, height: 20))
             return launchDateLabel
         }()
         
-        flightNumberLabel = {
-            let flightNumberLabel = UILabel(frame: .zero)
-            return flightNumberLabel
+        coresLaunchesCountLabel = {
+            let coresFlightLabel = UILabel(frame: CGRect(x: 230, y: 95, width: contentView.frame.width - 180, height: 20))
+            
+            coresFlightLabel.textColor = .systemGray3
+            return coresFlightLabel
         }()
-        
+
     }
     
     
     func addElementsToView() {
-        
-        let stackView1 = UIStackView()
-        stackView1.axis = .horizontal
-        stackView1.distribution = .equalSpacing
-        stackView1.alignment = .fill
-        stackView1.spacing = 10
-        
-        let stackView2 = UIStackView()
-        stackView2.axis = .horizontal
-        stackView2.distribution = .equalSpacing
-        stackView2.alignment = .fill
-        stackView2.spacing = 10
-        
-        let stackView3 = UIStackView()
-        stackView3.axis = .vertical
-        stackView3.distribution = .fill
-        stackView3.alignment = .leading
-        stackView3.spacing = 0
- 
-        stackView4 = {
-            let stackView4 = UIStackView()
-            stackView4.axis = .horizontal
-            stackView4.distribution = .fill
-            stackView4.alignment = .fill
-            stackView4.spacing = 15
-            return stackView4
-        }()
-        
-        stackView4.translatesAutoresizingMaskIntoConstraints = false
-        missionIconImage.translatesAutoresizingMaskIntoConstraints = false
-        
-        stackView1.addArrangedSubview(flightNumberLabel)
-        stackView1.addArrangedSubview(missionSuccessLabel)
-        
-        stackView2.addArrangedSubview(launchDateLabel)
-        stackView2.addArrangedSubview(coresLaunchesCountLabel)
-        
-        stackView3.addArrangedSubview(missionNameLabel)
-        stackView3.addArrangedSubview(stackView1)
-        stackView3.addArrangedSubview(stackView2)
-        
-        stackView4.addArrangedSubview(missionIconImage)
-        stackView4.addArrangedSubview(stackView3)
-        
-        contentView.addSubview(stackView4)
-
+        contentView.addSubview(flightNumberLabel)
+        contentView.addSubview(missionSuccessLabel)
+        contentView.addSubview(launchDateLabel)
+        contentView.addSubview(coresLaunchesCountLabel)
+        contentView.addSubview(missionNameLabel)
+        contentView.addSubview(missionIconImage)
     }
-    
-    func setElementsConstraints() {
-        
-        
-        NSLayoutConstraint.activate([
-            
-            
-            
-            stackView4.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 15),
-            stackView4.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 15),
-            stackView4.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -5),
-            stackView4.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -15),
 
-            missionIconImage.widthAnchor.constraint(equalToConstant: 100),
-            missionIconImage.heightAnchor.constraint(equalToConstant: 100),
-     
-        ])
-    }
-    
-    
     func getUIImage(urlAsString: String) {
         AF.request(urlAsString).responseData { response in
             

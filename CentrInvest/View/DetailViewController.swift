@@ -16,22 +16,25 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .white
-        
-        
 
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         guard let url = URL(string: detailViewModel.launch.links?.patch?.small ?? "") else { return }
+
         
-        guard let data = try? Data(contentsOf: url) else { return }
-       
+        DispatchQueue.main.async {
+            
+            guard let data = try? Data(contentsOf: url) else { return }
+           
+            
+            guard let image = UIImage(data: data) else { return }
+            let imageView = UIImageView(image: image)
+            imageView.center = self.view.center
+            self.view.addSubview(imageView)
+        }
         
-        guard let image = UIImage(data: data) else { return }
-        let imageView = UIImageView(image: image)
-        imageView.center = view.center
-        view.addSubview(imageView)
+
         
     }
 

@@ -27,12 +27,12 @@ class TableViewCellViewModel {
     }
     
     var coresLaunchesCount: String {
-        guard let coresLaunchesCount = launch.cores?[0]?.flight else { return "error mission.cores?[0]?.flight " }
+        guard let coresLaunchesCount = launch.cores?[0]?.flight else { return "Сore flight - 0" }
         return "Сore flight - " + String(coresLaunchesCount)
     }
 
     var missionSuccess: String {
-        guard let launchSuccess = launch.success else { return "error mission.success"}
+        guard let launchSuccess = launch.success else { return "Fail"}
         return launchSuccess == true ? "Success" : "Fail"
     }
     
@@ -47,7 +47,8 @@ class TableViewCellViewModel {
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         guard let date = dateFormatter.date(from: dateUtc) else { return "error1" }
-        dateFormatter.dateFormat = "MM/dd/yyyy"
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        dateFormatter.locale = Locale(identifier: "ru_RU")
         let str = dateFormatter.string(from: date)
         return str
     }
