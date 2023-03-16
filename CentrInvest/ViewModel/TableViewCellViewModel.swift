@@ -28,19 +28,6 @@ class TableViewCellViewModel {
     var observableMissionSuccess: BehaviorRelay<(String, UIColor, CGFloat)>? = BehaviorRelay(value: ("", .systemGray3, 0))
     var observableLaunchDate: BehaviorRelay<String>? = BehaviorRelay(value: "")
     var observableCoresLaunchesCount: BehaviorRelay<String>? = BehaviorRelay(value: "")
-
-    
-//    var launchDate: String {
-//        guard let dateUtc = launch.dateUtc else { return "error guard let dateUtc = launch.dateUtc"}
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-//        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-//        guard let date = dateFormatter.date(from: dateUtc) else { return "error1" }
-//        dateFormatter.dateFormat = "dd/MM/yyyy"
-//        dateFormatter.locale = Locale(identifier: "ru_RU")
-//        let str = dateFormatter.string(from: date)
-//        return str
-//    }
     
     func dateFormat(firstDate: String?) -> String {
         guard let firstDate = firstDate else { return "date_error_1"}

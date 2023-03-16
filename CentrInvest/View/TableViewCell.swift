@@ -12,6 +12,7 @@ import RxSwift
 class TableViewCell: UITableViewCell {
     
     var bag = DisposeBag()
+    let spinner = UIActivityIndicatorView()
         
     var missionIconImage: UIImageView!
     var missionIconImageAsString: String!
@@ -25,6 +26,7 @@ class TableViewCell: UITableViewCell {
     
     
     weak var tableViewCellViewModel: TableViewCellViewModel? {
+        
         willSet(tableViewCellViewModel) {
             
             guard let tableViewCellViewModel = tableViewCellViewModel else { return }
@@ -122,9 +124,15 @@ class TableViewCell: UITableViewCell {
         contentView.addSubview(coresLaunchesCountLabel)
         contentView.addSubview(missionNameLabel)
         contentView.addSubview(missionIconImage)
+        missionIconImage.addSubview(spinner)
+        spinner.frame.origin.x = missionIconImage.frame.width/2
+        spinner.frame.origin.y = missionIconImage.frame.height/2
     }
 
     func getUIImage(urlAsString: String) {
+        
+        spinner.startAnimating()
+        
         AF.request(urlAsString).responseData { response in
             
             switch response.result {
@@ -132,6 +140,7 @@ class TableViewCell: UITableViewCell {
                 if let image = UIImage(data: data) {
                     
                     if response.request?.url?.description == self.missionIconImageAsString {
+                        self.spinner.stopAnimating()
                         self.missionIconImage.image = image
                     }
                 }
