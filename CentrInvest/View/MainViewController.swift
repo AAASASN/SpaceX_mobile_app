@@ -27,6 +27,9 @@ class MainViewController: UIViewController{
             print("tableView.reloadData()")
             self.tableView.reloadData()
         }.disposed(by: bag)
+        
+        view.backgroundColor = .systemBackground
+
     }
 
 }
@@ -36,7 +39,7 @@ extension MainViewController {
     // MARK: - tableViewSettings
     func tableViewSettings() {
         
-        view.backgroundColor = .white
+        
         
         tableView = UITableView(frame: .zero)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -45,7 +48,7 @@ extension MainViewController {
         NSLayoutConstraint.activate([tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
                                      tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
                                      tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-                                     tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+                                     tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
                                     ])
         
         tableView.delegate = self
@@ -53,8 +56,7 @@ extension MainViewController {
         
         tableView.register(TableViewCell.self, forCellReuseIdentifier: "TableViewCell")
 
-        //tableView.allowsSelection = false
-        
+        tableView.backgroundColor = .clear
     }
 }
 

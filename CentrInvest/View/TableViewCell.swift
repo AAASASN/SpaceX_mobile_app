@@ -51,6 +51,7 @@ class TableViewCell: UITableViewCell {
         createCellElements()
         addElementsToView()
         self.accessoryType = .disclosureIndicator
+        self.selectionStyle = .none
     }
     
     required init?(coder: NSCoder) {
