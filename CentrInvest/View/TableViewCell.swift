@@ -10,12 +10,16 @@ import Alamofire
 import RxSwift
 
 class TableViewCell: UITableViewCell {
+    
+    var bag = DisposeBag()
         
     var missionIconImage: UIImageView!
     var missionIconImageAsString: String!
     var missionNameLabel: UILabel!
+    
     var flightNumberLabel: UILabel!
     var missionSuccessLabel: UIButton!
+    
     var launchDateLabel: UILabel!
     var coresLaunchesCountLabel: UILabel!
     
@@ -24,23 +28,32 @@ class TableViewCell: UITableViewCell {
         willSet(tableViewCellViewModel) {
             
             guard let tableViewCellViewModel = tableViewCellViewModel else { return }
-            
-            missionNameLabel.text = tableViewCellViewModel.missionName
-            coresLaunchesCountLabel.text = tableViewCellViewModel.coresLaunchesCount
-            
-            missionSuccessLabel.setTitle(tableViewCellViewModel.missionSuccess, for: .normal)
-            
-            if tableViewCellViewModel.launch.success ?? false {
-                missionSuccessLabel.backgroundColor = .systemGreen
-                missionSuccessLabel.frame.size.width = 80
-            } else {
-                missionSuccessLabel.backgroundColor = .systemRed
-                missionSuccessLabel.frame.size.width = 40
+                        
+            tableViewCellViewModel.observableMissionName?.asObservable().subscribe(onNext: { nameAsString in
+                self.missionNameLabel.text = nameAsString
+            }).disposed(by: bag)
 
-            }
+            
+            tableViewCellViewModel.observableFlightNumber?.asObservable().subscribe(onNext: { flightNumberAsString in
+                self.flightNumberLabel.text = flightNumberAsString
+            }).disposed(by: bag)
+            
+            
+            tableViewCellViewModel.observableMissionSuccess?.asObservable().subscribe(onNext: { missionSuccessParamTuple in
+                self.missionSuccessLabel.setTitle(missionSuccessParamTuple.0, for: .normal)
+                self.missionSuccessLabel.backgroundColor = missionSuccessParamTuple.1
+                self.missionSuccessLabel.frame.size.width = missionSuccessParamTuple.2
+            }).disposed(by: bag)
+            
+            
+            tableViewCellViewModel.observableLaunchDate?.asObservable().subscribe(onNext: { launchDateAsString in
+                self.launchDateLabel.text = launchDateAsString
+            }).disposed(by: bag)
+            
+            tableViewCellViewModel.observableCoresLaunchesCount?.asObservable().subscribe(onNext: { coresLaunchesCountAsString in
+                self.coresLaunchesCountLabel.text = coresLaunchesCountAsString
+            }).disposed(by: bag)
 
-            launchDateLabel.text = tableViewCellViewModel.launchDate
-            flightNumberLabel.text = tableViewCellViewModel.flightNumber
             missionIconImageAsString = tableViewCellViewModel.missionIconImage
             getUIImage(urlAsString: missionIconImageAsString)
         }
@@ -81,10 +94,9 @@ class TableViewCell: UITableViewCell {
         
         missionSuccessLabel = {
             let missionSuccessLabel = UIButton(frame: CGRect(x: 130, y: 70, width: 80, height: 20))
+            missionSuccessLabel.titleLabel?.textColor = .white
             missionSuccessLabel.titleLabel?.font = .boldSystemFont(ofSize: 18)
-            missionSuccessLabel.backgroundColor = .systemGreen
             missionSuccessLabel.layer.cornerRadius = 5
-            
             return missionSuccessLabel
         }()
         
@@ -96,7 +108,7 @@ class TableViewCell: UITableViewCell {
         coresLaunchesCountLabel = {
             let coresFlightLabel = UILabel(frame: CGRect(x: 230, y: 95, width: contentView.frame.width - 180, height: 20))
             
-            coresFlightLabel.textColor = .systemGray3
+            coresFlightLabel.textColor = .systemGray
             return coresFlightLabel
         }()
 
