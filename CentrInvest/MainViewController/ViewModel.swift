@@ -11,9 +11,7 @@ import RxSwift
 import RxCocoa
 
 class ViewModel {
-    
-    let url = "https://api.spacexdata.com/v5/launches"
-    
+        
     var networkManager: NetworkManagerProtocol?
     
     var bag = DisposeBag()
@@ -36,30 +34,49 @@ class ViewModel {
             print("flightNumber - \(String(describing: launches[0].flightNumber))")
             print("date - \(String(describing: launches[0].dateUtc))")
             print("launches success - \(String(describing: launches[0].success))")
-            print("imageLink small = \(String(describing: launches[0].links?.patch?.small))")
+            print("imageLink small = \(String(describing: launches[0].links?.patch.small))")
             print("cores flight count - \(String(describing: launches[0].cores?[0]?.flight))")
             print("ships names array - \(launches[0].ships)")
             print("")
+            print("youtube small = \(String(describing: launches[0].links?.webcast))")
             print("launches.count \(launches.count)")
             print("")
-
-
+        }
+    }
+    
+    var crew: [CrewMember]! {
+        didSet {
+            
+            guard let x = observableValueForReloadTableView?.value else { return }
+            observableValueForReloadTableView?.accept(!x)
+            
+            guard let crew = crew, !crew.isEmpty   else { return }
+            print("")
+            print("DidSet во ViewModel - значение crew[0] : ")
+            print("name - \(String(describing: crew[0].name))")
+            print("id - \(String(describing: crew[0].id))")
+            print("")
+            print("crew.count \(crew.count)")
+            print("")
         }
     }
     
     init() {
         launches = []
         networkManager = NetworkManager()
-        networkManager?.getLaunchesToViewModel(url: url)
+        networkManager?.fetchData(getMoyaSevice: .getLaunches)
+        networkManager?.fetchData(getMoyaSevice: .getCrew)
+//        networkManager?.fetchData(url: "https://api.spacexdata.com/v4/launches")
+//        networkManager?.fetchData(url: <#T##String#>)
         
-        networkManager?.launchesArray?.asObservable().subscribe(onNext: { value in
-            if !value.isEmpty {
-                print("Значение value прищло во ViewModel : ")
-                print("someValue = \(String(describing: value[0])) ")
+        
+        networkManager?.launchesArray?.asObservable().subscribe(onNext: { launchesArrayValue in
+            if !launchesArrayValue.isEmpty {
+                print("Значение value-launchesArray прищло во ViewModel : ")
+                print("someValue = \(String(describing: launchesArrayValue[0])) ")
             }
-            self.launches = value
+            self.launches = launchesArrayValue
         }).disposed(by: bag)
-                
     }
       
     func numberOfRows() -> Int {
@@ -75,14 +92,5 @@ class ViewModel {
         let launch = launches[indexPath.row]
         return DetailViewModel(launch: launch)
     }
-    
-//    func viewModelForSelectedRow() -> DetailViewModelType? {
-//        guard let selectedIndexPath = selectedIndexPath else { return nil }
-//        return DetailViewModel(profile: profiles[selectedIndexPath.row])
-//    }
-    
-//    func selectRow(atIndexPath indexPath: IndexPath) {
-//        self.selectedIndexPath = indexPath
-//    }
 
 }

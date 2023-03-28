@@ -10,14 +10,16 @@ import RxSwift
 import RxCocoa
 
 
-class MainViewController: UIViewController{
+class MainViewController: UIViewController {
     
     var tableView: UITableView!
+    
     var bag = DisposeBag()
     private var viewModel: ViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         viewModel = ViewModel()
         navigationItem.title = "SpaceX"
@@ -28,7 +30,7 @@ class MainViewController: UIViewController{
             self.tableView.reloadData()
         }.disposed(by: bag)
         
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .systemGray2
 
     }
 
@@ -38,9 +40,7 @@ extension MainViewController {
     
     // MARK: - tableViewSettings
     func tableViewSettings() {
-        
-        
-        
+
         tableView = UITableView(frame: .zero)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
@@ -55,40 +55,48 @@ extension MainViewController {
         tableView.dataSource = self
         
         tableView.register(TableViewCell.self, forCellReuseIdentifier: "TableViewCell")
-
-        tableView.backgroundColor = .clear
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = .systemGray5
     }
+    
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
-    
+
     // MARK: - Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRows()
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
         cell.missionIconImage.image = nil
+        cell.screenWidth = Int(view.frame.width)
+
         cell.tableViewCellViewModel = viewModel.cellViewModelCreate(forIndexPath: indexPath)
         return cell
     }
-    
+
     //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     //        300
     //    }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
         130
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         guard let viewModel = viewModel else { return }
-        
+
         let detailViewController = DetailViewController()
         detailViewController.detailViewModel = viewModel.detailViewModelCreate(forIndexPath: indexPath)
         navigationController?.pushViewController(detailViewController, animated: true)
 
     }
+
+
 }
+

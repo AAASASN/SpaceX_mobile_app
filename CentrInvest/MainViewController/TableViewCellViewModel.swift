@@ -20,7 +20,7 @@ class TableViewCellViewModel {
     }
 
     var missionIconImage: String {
-        return launch.links?.patch?.small ?? "error image"
+        return launch.links?.patch.small ?? "error image"
     }
     
     var observableMissionName: BehaviorRelay<String>? = BehaviorRelay(value: "")

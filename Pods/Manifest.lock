@@ -5,6 +5,7 @@ PODS:
   - Moya/RxSwift (15.0.0):
     - Moya/Core
     - RxSwift (~> 6.0)
+  - pop (1.0.12)
   - Result (4.0.1)
   - RxCocoa (6.5.0):
     - RxRelay (= 6.5.0)
@@ -12,35 +13,41 @@ PODS:
   - RxRelay (6.5.0):
     - RxSwift (= 6.5.0)
   - RxSwift (6.5.0)
-  - SwiftyJSON (4.3.0)
+  - SwiftyJSON (5.0.1)
+  - YoutubePlayer-in-WKWebView (0.3.8)
 
 DEPENDENCIES:
-  - Alamofire
   - Moya/RxSwift (~> 15.0)
+  - pop
   - Result (~> 4.0.0)
   - RxCocoa (= 6.5.0)
   - RxSwift (= 6.5.0)
-  - SwiftyJSON (~> 4.0)
+  - SwiftyJSON
+  - YoutubePlayer-in-WKWebView
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - Moya
+    - pop
     - Result
     - RxCocoa
     - RxRelay
     - RxSwift
     - SwiftyJSON
+    - YoutubePlayer-in-WKWebView
 
 SPEC CHECKSUMS:
   Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
+  pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   Result: a6e784bebf48b471d59cddc1adb81f41f678c487
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
-  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
+  SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
+  YoutubePlayer-in-WKWebView: 4fca3b4f6f09940077bfbae7bddb771f2b43aacd
 
-PODFILE CHECKSUM: 137c0ee4e44c503a3fbb0bcf85e1e3194f1c9133
+PODFILE CHECKSUM: d7e866545913c00e0f791b7ad9f2dcc5a2234cbe
 
 COCOAPODS: 1.11.3
