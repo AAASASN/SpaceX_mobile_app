@@ -95,7 +95,7 @@
 				11A1BB9929C5E5F300A4D4A6 /* DetailViewController */,
 				11A1BB9629C5E54000A4D4A6 /* MainViewController */,
 				11B965A129AF79B600BEC9FB /* Model */,
-				11A1BB9829C5E5C100A4D4A6 /* Nenworking */,
+				11A1BB9829C5E5C100A4D4A6 /* Networking */,
 				115090A129AF523D00244A45 /* Assets.xcassets */,
 				115090A329AF523D00244A45 /* LaunchScreen.storyboard */,
 				115090A629AF523D00244A45 /* Info.plist */,
@@ -114,12 +114,12 @@
 			path = MainViewController;
 			sourceTree = "<group>";
 		};
-		11A1BB9829C5E5C100A4D4A6 /* Nenworking */ = {
+		11A1BB9829C5E5C100A4D4A6 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
 				11B965B129AF7E5D00BEC9FB /* NetworkManager.swift */,
 			);
-			path = Nenworking;
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		11A1BB9929C5E5F300A4D4A6 /* DetailViewController */ = {
@@ -423,6 +423,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 47GST27FJ9;
@@ -440,6 +441,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.-alexanderMaraenko.CentrInvest";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -455,6 +457,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 47GST27FJ9;
@@ -472,6 +475,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.-alexanderMaraenko.CentrInvest";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

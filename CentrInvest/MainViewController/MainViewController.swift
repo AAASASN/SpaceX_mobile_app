@@ -16,24 +16,48 @@ class MainViewController: UIViewController {
     
     var bag = DisposeBag()
     private var viewModel: ViewModel!
+    
+    private let searchController = UISearchController(searchResultsController: nil)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         viewModel = ViewModel()
+        
         navigationItem.title = "SpaceX"
+        view.backgroundColor = .systemGray5
+        
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.backgroundColor = .systemGray5
+        // searchController.searchBar.barTintColor = .blue
+        searchController.searchBar.tintColor = .systemGray
+        searchController.searchBar.placeholder = "Search Launches"
+        searchController.searchBar.searchBarStyle = .minimal
+        searchController.hidesNavigationBarDuringPresentation = false
+        navigationItem.titleView = searchController.searchBar
+        definesPresentationContext = true
+
+        
         tableViewSettings()
         
         viewModel.observableValueForReloadTableView?.asObservable().subscribe { boolValie in
             print("tableView.reloadData()")
             self.tableView.reloadData()
         }.disposed(by: bag)
-        
-        view.backgroundColor = .systemGray2
-
     }
 
+}
+
+extension MainViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        viewModel.searchText.accept(searchController.searchBar.text ?? "")
+        
+    }
+    
+    
 }
 
 extension MainViewController {
@@ -65,7 +89,9 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 
     // MARK: - Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfRows()
+//        return viewModel.numberOfRows()
+        return viewModel.filteredLaunches.count
+
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -12,6 +12,7 @@ import RxCocoa
 import Moya
 
 protocol NetworkManagerProtocol {
+    
 //    func fetchData(url: String)
     func fetchData(getMoyaSevice: MoyaSevice)
 
