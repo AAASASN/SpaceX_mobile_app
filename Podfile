@@ -7,20 +7,26 @@ target 'CentrInvest' do
 
   # Pods for CentrInvest
 
-  pod 'Alamofire'
+#  pod 'Alamofire'
+#  pod 'Alamofire', '4.7.2'
   
-  pod 'SwiftyJSON', '~> 4.0'
+  pod 'SwiftyJSON'
 
 #  pod 'Moya', '~> 15.0'
 
   pod 'Moya/RxSwift', '~> 15.0'
   
   pod 'RxSwift', '6.5.0'
+  
   pod 'RxCocoa', '6.5.0'
   
   pod 'Result', '~> 4.0.0'
-#
-
+  
+  pod 'pop'
+  
+#  pod 'youtube-ios-player-helper'
+  pod "YoutubePlayer-in-WKWebView"
+#pod "YoutubePlayer-in-WKWebView", "~> 0.2.0"
 
 
 #  pod 'RxBlocking', '6.5.0'
