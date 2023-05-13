@@ -211,7 +211,7 @@ extension TableViewCell {
     func shrink() {
         let shrinkAnimation = POPBasicAnimation(propertyNamed: kPOPLayerScaleXY)
         shrinkAnimation?.toValue = NSValue(cgSize: CGSize(width: 0.95, height: 0.95))
-        shrinkAnimation?.duration = 0.1
+        shrinkAnimation?.duration = 0.15
         layer.pop_add(shrinkAnimation, forKey: "shrink")
     }
     
@@ -219,7 +219,7 @@ extension TableViewCell {
         let releaseAnimation = POPSpringAnimation(propertyNamed: kPOPLayerScaleXY)
         releaseAnimation?.toValue = NSValue(cgSize: CGSize(width: 1.0, height: 1.0))
         releaseAnimation?.velocity = NSValue(cgPoint: CGPoint(x: 1, y: 1))
-        releaseAnimation?.springBounciness = 20
+        releaseAnimation?.springBounciness = 0
         layer.pop_add(releaseAnimation, forKey: "shrink")
     }
     
